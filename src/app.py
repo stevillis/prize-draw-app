@@ -31,10 +31,7 @@ names_input2 = st.text_area(
 num_names = st.number_input("Number of names", min_value=1, step=1, value=2)
 if st.button("Name Sorting"):
     names = [name.strip() for name in names_input2.split(",")]
-    if len(names) < 2:
-        st.write("Please enter at least two names.")
-    else:
-        st.session_state.selected_names = select_n_names(names, num_names)
+    st.session_state.selected_names = select_n_names(names, num_names)
 
 if st.session_state.selected_names:
     st.write(f"Selected Names: {', '.join(st.session_state.selected_names)}")
